@@ -8,16 +8,16 @@
 		<input [(ngModel)] = "this.cellsNumb" this.cellsNumb= "this.cellsNumb" class = "form-control"  type = "text" placeholder = "taille d'un coté" id = "cellsNum" name = "cellswide" value = "50" />
 	</div>
 	
-	<button class = "btn btn-primary center-block" type = "button" id = "validation" (click) = "setup()">valider</button>
+	<button class = "btn btn-primary center-block" type = "button" id = "validation" (click) = "setup3()">valider</button>
 	
 	<div class="panel panel-default" id = "panel2">
 		<div class="panel-heading"><p class = "text-center">lancez une simulation et modifiez la vitesse à volonté !</p></div>
 		<div class="panel-body">
 			<div class = "btn-group center-block" role = "group" aria = "....">
-				<button class = "btn btn-lg center-block perso1" type = "button" onclick = "this.slowTimer()"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
-				<button class = "btn btn-lg center-block perso1" type = "button" onclick = "this.startTimer()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-				<button class = "btn btn-lg center-block perso1" type = "button" onclick = "this.stopTimer()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
-				<button class = "btn btn-lg center-block perso1" type = "button" onclick = "this.fastTimer()"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+				<button class = "btn btn-lg center-block perso1" type = "button" (click) = "this.slowTimer()"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
+				<button class = "btn btn-lg center-block perso1" type = "button" (click) = "this.startTimer()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+				<button class = "btn btn-lg center-block perso1" type = "button" (click) = "this.stopTimer()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+				<button class = "btn btn-lg center-block perso1" type = "button" (click) = "this.fastTimer()"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
 			</div>
 		</div>
 	</div>

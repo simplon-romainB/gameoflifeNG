@@ -36,7 +36,10 @@ public resultatsFiltre;
  @Input() cellsNumb;
    constructor(public configService: ConfigService, public mecanicsService: MecanicsService) { }
 
-
+  setup2(){
+  	this.initialiseur = 0;
+  	this.setup1();
+  }
   
   setup1(){
 	

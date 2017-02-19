@@ -27,7 +27,12 @@ export class AppComponent {
 
   setup() {
   	this.canvasGridComponent.setup1();
-  }
+  } 
+
+  	setup3() {
+  		this.canvasGridComponent.initialiseur = 0;
+  		this.canvasGridComponent.setup1();
+  	}
 
 
   	 colorchoice(couleur,canvasGrid){
@@ -57,7 +62,7 @@ export class AppComponent {
   startTimer() {
   clearInterval(this.sTimer)
   this.timerSpeed = 300
-  this.sTimer = setInterval(this.canvasGridComponent.setup1, this.timerSpeed)
+  this.sTimer= setInterval(()=>{this.canvasGridComponent.setup1();}, this.timerSpeed);
   }
 
   stopTimer() {
@@ -66,13 +71,13 @@ export class AppComponent {
   slowTimer() {
     this.timerSpeed = this.timerSpeed*1.5
     clearInterval(this.sTimer)
-    this.sTimer = setInterval(this.setup, this.timerSpeed)
+    this.sTimer = setInterval(()=>{this.canvasGridComponent.setup1();}, this.timerSpeed);
 
   }
   fastTimer(canFunc) {
     this.timerSpeed = this.timerSpeed/1.5
     clearInterval(this.sTimer)
-    this.sTimer = setInterval(this.setup, this.timerSpeed)
+    this.sTimer = setInterval(()=>{this.canvasGridComponent.setup1();}, this.timerSpeed);
   }
 
 	}
