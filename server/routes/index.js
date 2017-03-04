@@ -7,7 +7,7 @@ var mysql = require('mysql');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a sql ressourcell');
+    res.send('respond with a sql ressourcell');
 });
 
 

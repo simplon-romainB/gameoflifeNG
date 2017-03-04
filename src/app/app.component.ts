@@ -1,3 +1,4 @@
+import { ConnexionService } from './connexion.service';
 import { Component,ViewChild } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,11 +20,26 @@ export class AppComponent {
 	public timerSpeed = 300;
 	public initialiseur;
 	public sTimer;
+  public configName;
+  public viecells;
 
   @ViewChild(CanvasGridComponent) private  canvasGridComponent: CanvasGridComponent;
 
-  constructor(public configService: ConfigService, public mecanicsService: MecanicsService) {}
+  constructor(public configService: ConfigService, public mecanicsService: MecanicsService, public connexionService: ConnexionService) {}
+  test() {
+    this.connexionService.requestParameters =  this.configName;
+    this.connexionService.test().subscribe(v=> this.cellsstart = v[0].cellsstart);
+    this.connexionService.test().subscribe(v=> this.cellsNumb = v[0].cellswide);
+  }
 
+  save() {
+    this.connexionService.snomconfig = this.configName;
+    this.connexionService.scellsstart = this.cellsstart;
+    this.connexionService.scellswide = this.cellsNumb;
+    this.connexionService.sviecells = this.viecells;
+    console.log(this.connexionService.snomconfig);
+    this.connexionService.save().subscribe(v=> console.log(v));
+  }
 
   setup() {
   	this.canvasGridComponent.setup1();

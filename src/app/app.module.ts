@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CanvasGridComponent } from './canvas-grid/canvas-grid.component';
 import { ConfigService } from './config.service';
 import { MecanicsService } from './mecanics.service' ;
+import { ConnexionService } from './connexion.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { MecanicsService } from './mecanics.service' ;
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [ConfigService, MecanicsService],
+  providers: [ConfigService, MecanicsService, ConnexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

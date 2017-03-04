@@ -3,24 +3,24 @@ var router = express.Router();
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'test'
-  
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'test'
+
 });
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/:param', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    connection.query('SELECT * FROM tablegol WHERE nomconfig="' + req.params.param + '"', function(err, rows) {
+        if (err) throw err;
+        res.send(rows)
 
-	 connection.query('SELECT * FROM tablegol', function(err, rows){
-	 	if (err) throw err ;
-	 	console.log('tablegol', rows[0]);
-    
-  });
+    });
 
 
-  res.send('tablegol');
+
 });
 
 module.exports = router;
