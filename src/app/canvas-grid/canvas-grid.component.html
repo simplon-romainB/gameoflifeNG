@@ -1,12 +1,48 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default" id="panel2">
+            <p>Derriere ce sobriquet un peu pompeux se cache un principe relativement simple. chaque cellule vit ou meurt selon le nombre de cellules l'entourant à chaque nouvelle generation(une cellule revient à la vie si elle est encerclée par 3 cellules
+                vivantes, et une cellulle reste vivante si elle a autour d'elle 2 ou 3 autres cellules vivantes). Voila !</p>
+        </div>
+        <h3>interview de J.Conway sur la création du Game of Life (Anglais)</h3>
+        <div class="embed-responsive embed-responsive-16by9">
 
-<div id = "canvasContainer" #canvascontainer><canvas #myCanvas (click)="this.setup1()" ></canvas></div>
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/R9Plq-D1gEk"></iframe>
+
+        </div>
+
+        <h3>Explication en video (Anglais)</h3>
+        <div class="embed-responsive embed-responsive-16by9">
+
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0XI6s-TGzSs"></iframe>
+        </div>
+        <ul>
+            <li><a href="https://fr.wikipedia.org/wiki/Automate_cellulaire">Article wikipedia sur les automates cellulaires</a></li>
+            <li><a href="https://www.amazon.fr/grand-architecte-dans-lUnivers/dp/2738131964">Ouvrage de S.Hawking "Y a t-il un grand architecte dans l'univers ?" dont la dernière partie traite du jeu de la vie</a></li>
+            <li><a href="https://sanojian.github.io/cellauto/">Jeu de la vie en Javascript et librairie custom</a></li>
+            <li><a href="https://www.amazon.fr/New-Kind-Science-Stephen-Wolfram/dp/1579550088">Ouvrage de S.Wolfram "A new kind of science" pour aller plus loin</a></li>
+
+        </ul>
+    </div>
+
+
+    <div class="col-md-12" id="canvasContainer" #canvascontainer>
+        <canvas #myCanvas (click)="this.setup1()"></canvas></div>
+</div>
 <style>
-#canvasContainer {
-  position: relative;
-  width: 100vh;
-  height: 100.1vh;
-  margin-left: auto;
-  margin-right: auto ;
-
-}
+    #canvasContainer {
+        position: relative;
+        width: 100vh;
+        height: 100vh;
+        margin: auto;
+    }
+    
+    .bouton {
+        border-radius: 100%;
+        margin-left: auto;
+    }
+    
+    #panel2 {
+        background-color: #75a3a3;
+    }
 </style>

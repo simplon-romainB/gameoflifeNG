@@ -11,15 +11,7 @@ var users = require('./routes/users');
 var save = require('./routes/save');
 
 var app = express();
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root@localhost',
-    password: '',
-    database: 'test'
 
-});
-
-connection.query('USE test');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

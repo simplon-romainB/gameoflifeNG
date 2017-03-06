@@ -1,5 +1,5 @@
 import { ConnexionService } from './connexion.service';
-import { Component,ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ConfigService } from './config.service';
@@ -12,16 +12,16 @@ import { CanvasGridComponent } from './canvas-grid/canvas-grid.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  private cellsstart ;
-  private cellsNumb ;
-  	public colorChoice1 = 'black';
+export class AppComponent implements AfterViewInit {
+  private cellsstart = 50;
+  private cellsNumb = 98;
+  public colorChoice1 = 'black';
 	public colorChoice2 = 'white';
 	public timerSpeed = 300;
 	public initialiseur;
 	public sTimer;
   public configName;
-  public viecells;
+  public viecells = 3;
 
   @ViewChild(CanvasGridComponent) private  canvasGridComponent: CanvasGridComponent;
 
@@ -30,6 +30,7 @@ export class AppComponent {
     this.connexionService.requestParameters =  this.configName;
     this.connexionService.test().subscribe(v=> this.cellsstart = v[0].cellsstart);
     this.connexionService.test().subscribe(v=> this.cellsNumb = v[0].cellswide);
+    this.connexionService.test().subscribe(v=> this.viecells = v[0].viecells)
   }
 
   save() {
@@ -45,13 +46,13 @@ export class AppComponent {
   	this.canvasGridComponent.setup1();
   } 
 
-  	setup3() {
-  		this.canvasGridComponent.initialiseur = 0;
-  		this.canvasGridComponent.setup1();
-  	}
+  setup3() {
+  	this.canvasGridComponent.initialiseur = 0;
+  	this.canvasGridComponent.setup1();
+  }
 
 
-  	 colorchoice(couleur,canvasGrid){
+  	/* colorchoice(couleur,canvasGrid){
     this.colorChoice1 = couleur;
     document.getElementById('affichagecouleur1').innerHTML = couleur;
     document.getElementById('affichagecouleur1').style.backgroundColor = couleur;
@@ -68,7 +69,7 @@ export class AppComponent {
     canvasGrid.setup();
     
 
-  }
+  }*/
 
   reconfiguration(canFunc,init) {
    init = 0;
@@ -95,6 +96,9 @@ export class AppComponent {
     clearInterval(this.sTimer)
     this.sTimer = setInterval(()=>{this.canvasGridComponent.setup1();}, this.timerSpeed);
   }
+    ngAfterViewInit() {
+      this.setup();
+    }
 
 	}
  

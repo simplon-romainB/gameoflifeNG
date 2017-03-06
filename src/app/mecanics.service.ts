@@ -12,6 +12,7 @@ public verifTab;
 public cellsNumb;
 public renderTab;
 public cellsstart ;
+public viecells;
   gameOfLife() {
 
 
@@ -28,7 +29,7 @@ if (this.comptageTab[this.comptage].etat == 0){
    if (this.comptageTab[this.comptage+1] != undefined){(verif = verif +(this.comptageTab[this.comptage+1].etat))}
    
 
-    if (verif == 3){
+    if (verif == this.viecells){
       this.renderTab.push(1)
     }
     else {
