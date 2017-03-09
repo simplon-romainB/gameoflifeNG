@@ -1,3 +1,5 @@
+/* service dont le rôle sera de gerer les règles du game ofl ife */
+
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -15,7 +17,7 @@ public cellsstart ;
 public viecells;
   gameOfLife() {
 
-
+/*algorithme  qui sera different selon que l'on soit sur une case vivante ou une case morte */
 if (this.comptageTab[this.comptage].etat == 0){
    
    let verif = 0;
@@ -60,6 +62,8 @@ else if ((this.comptageTab[this.comptage].etat) == 1) {
 
                                     }
   }
+  
+  /* fonction remplit la grille de départ suivant le pourcentage que l'on choisit dans la configuration */
   fillGrid(){
   let hasard = Math.floor(Math.random()*100)
   
