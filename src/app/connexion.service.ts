@@ -12,7 +12,7 @@ public scellsstart;
 public scellswide;
 
   constructor(public http:Http) {}
-
+/* les deux requetes afin de recuperer les configurations dans la base de données et en sauvegarder*/
   test(){
     return this.http.get('http://exos.yysh.fr/users/'+ this.requestParameters +'').map(v => v.json());
   }
